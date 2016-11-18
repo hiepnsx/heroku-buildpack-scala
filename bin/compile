@@ -180,6 +180,8 @@ if is_sbt_native_packager $BUILD_DIR || is_play $BUILD_DIR; then
   fi
   if [ -d $BUILD_DIR/target ] ; then
     status "Dropping compilation artifacts from the slug"
+    rm -rf $BUILD_DIR/modules/admin/target
+    rm -rf $BUILD_DIR/modules/base/target
     rm -rf $BUILD_DIR/target/scala-*
     rm -rf $BUILD_DIR/target/streams
     if [ -d $BUILD_DIR/target/resolution-cache ] ; then
